@@ -8,7 +8,7 @@ const verifieToken = require('../middlewares/auth')
 
 const UserController = require('../controllers/user.controller');
 
-router.post('/add', UserController.postUser)
+router.post('/add', UserController.avisUser)
 router.post('/sign', UserController.sign)
 router.get('/all', UserController.getAllUsers)
 router.get('/:id', UserController.getUser)

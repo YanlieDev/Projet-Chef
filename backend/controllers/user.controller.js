@@ -9,7 +9,7 @@ const Users = require('../models/user.models');
 
 // CRÉER UN NOUVEL UTILISATEUR
 
-const postUser = async (req, res) => {
+const avisUser = async (req, res) => {
     try {
         const passwordHashed = await bcrypt.hash(req.body.password, 10);
         const result = await Users.create({...req.body, password: passwordHashed})
@@ -123,7 +123,7 @@ const deleteUser = async () => {
 
 
 module.exports = {
-    postUser,
+    avisUser,
     sign,
     getAllUsers,
     getUser,

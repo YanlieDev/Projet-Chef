@@ -6,7 +6,7 @@ const connectMongoDB = require('./config/dbMongo');
 
 // IMPORT ROUTES
 const userRouter = require ('./router/user.router');
-const postRouter = require ('./router/post.router');
+const avisRouter = require ('./router/avis.router');
 
 // CONNEXION MONGO
 connectMongoDB(ENV.MONGO_URI, ENV.DB_NAME);
@@ -16,7 +16,7 @@ app.use(express.json()); // Permet la création, l'enregistrement et la sauverga
 
 // URLS API PREFIX
 app.use("/chef_a_domicile/users", userRouter);
-app.use("/chef_a_domicile/posts", postRouter);
+app.use("/chef_a_domicile/avis", avisRouter);
 
 // MIDDLEWARES DE GESTION D'ERREUR
 app.use((error,req, res, next) => {

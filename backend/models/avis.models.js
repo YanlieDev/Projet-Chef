@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const postSchema = mongoose.Schema(
+const avisSchema = mongoose.Schema(
     {
         author: {
             type: mongoose.Schema.Types.ObjectId,
@@ -19,4 +19,4 @@ const postSchema = mongoose.Schema(
         }
     } , { timestamps: { createdAt: true} }
 )
-module.exports = mongoose.model('post', postSchema )
+module.exports = mongoose.model('avis', avisSchema )
