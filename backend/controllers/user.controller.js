@@ -9,7 +9,7 @@ const Users = require('../models/user.models');
 
 // CRÉER UN NOUVEL UTILISATEUR
 
-const avisUser = async (req, res) => {
+const postUser = async (req, res) => {
     try {
         const passwordHashed = await bcrypt.hash(req.body.password, 10);
         const result = await Users.create({...req.body, password: passwordHashed})
@@ -112,7 +112,7 @@ const deleteUser = async () => {
         if(user._id.tostring() != req.user._id.tostring()) return next(createError(403, 'Accès refusé !!!'));
         user.isActive = false;
         await user.save()
-        res.status(200).json('Utilisateurs désactivé !!!')
+        res.status(200).json('Utilisateur désactivé !!!')
     } catch (error) {
         console.log('Error : ', error.message);
         next(createError(500, error.message))
@@ -123,7 +123,7 @@ const deleteUser = async () => {
 
 
 module.exports = {
-    avisUser,
+    postUser,
     sign,
     getAllUsers,
     getUser,
